@@ -131,18 +131,28 @@ mission:
 #    Check http://wiki.ros.org/mavros/Enumerations
 ##
 distance_sensor:
-  laser_1_sub:
-    subscriber: true
+  hrlv_ez4_pub:
     id: 0
-    orientation: PITCH_270
-  laser_2_sub:
-    subscriber: true
+    frame_id: "hrlv_ez4_sonar"
+    orientation: PITCH_270 # RPY:{0.0, 270.0, 0.0} - downward-facing
+    field_of_view: 0.0  # XXX TODO
+    send_tf: true
+    sensor_position: {x:  0.0, y:  0.0, z:  -0.1}
+  lidarlite_pub:
     id: 1
-    orientation: PITCH_180
-  laser_3_sub:
+    frame_id: "lidarlite_laser"
+    orientation: PITCH_270
+    field_of_view: 0.0  # XXX TODO
+    send_tf: true
+    sensor_position: {x:  0.0, y:  0.0, z:  -0.1}
+  sonar_1_sub:
     subscriber: true
     id: 2
-    orientation: NONE
+    orientation: PITCH_270
+  laser_1_sub:
+    subscriber: true
+    id: 3
+    orientation: PITCH_270
 
 # image_pub
 image:
